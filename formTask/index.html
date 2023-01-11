@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <script src="../jquery-3.6.3.min.js"></script>
+    <head>
+        <title></title>
+        <style>
+            .greaterThan {
+                background-color: yellow;
+            }
+
+            .lessThan {
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="border: 3px solid green; font-size: large">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="txtName" /></td>
+            </tr>
+            <tr>
+                <td>Grade</td>
+                <td><input type="text" id="txtAge" /></td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>
+                    <select id="_slt">
+                        <option>SD</option>
+                        <option>Java</option>
+                        <option>Network</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Add" id="Add" />
+                </td>
+            </tr>
+        </table>
+
+        <table style="width: 200px" id="_tbl"></table>
+
+        <script src="app.js"></script>
+    </body>
+</html>

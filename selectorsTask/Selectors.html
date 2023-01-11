@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            .active {
+                background-color: pink;
+            }
+
+            div {
+                display: inline-block;
+            }
+        </style>
+
+        <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script> -->
+        <script src="../jquery-3.6.3.min.js"></script>
+        <!-- <script src="JS/Manipulation.js">
+        //code
+    </script> -->
+        <script>
+            // window.onload=function(){
+            //     //selection code
+            // }
+            // $(document).ready(function(){
+
+            // })
+            $(function () {
+                //selection calling after page load
+
+                // $("Selector").action()
+                //ID,TagName,className,GenrealSelector,Grouping Selector
+                console.log($('#example'));
+                // $("#example").css("backgroundColor","green");
+                // $("#example").css("background-color","green");
+                $('#example').css({
+                    'background-color': 'lightgreen',
+                    padding: '3px',
+                    width: '250px',
+                });
+                // $("li").css({
+                //     backgroundColor:'yellow'
+                // })
+                // $("li:odd").css({
+                //     backgroundColor:'pink'
+                // })
+                // $("li:gt(3)").css({
+                //     backgroundColor:'red'
+                // })
+                //Zero BAsed
+                $('li:eq(3)').css({
+                    backgroundColor: 'cyan',
+                });
+                // $("li:first").css({
+                //     backgroundColor:'green'
+                // })
+                // $("li:first-child").css({
+                //     backgroundColor:'cyan'
+                // })
+                // $("li:last").css({
+                //     backgroundColor:'red'
+                // })
+                // $("li:last-child").css({
+                //     backgroundColor:'red'
+                // })
+                //one BAsed for each parent
+                // $("li:nth-child(3)").css({
+                //     backgroundColor:'orange'
+                // })
+                // $("li:lt(3)").css({
+                //     backgroundColor:'blue'
+                // })
+                // $(".a").css({
+                //     backgroundColor:'red'
+                // })
+                // //grouping Selector
+                // $("p,.b,#example").css({
+                //     backgroundColor:'yellow'
+                // })
+
+                // //General Selector
+                // console.log($("*"));
+                // $("*").css({
+                //     backgroundColor:'lightcyan',
+                //     padding:'5px',
+                //     margin:'5px auto',
+                //     border:'1px solid yellow'
+                // })
+                // $("body").css({
+                //     border:'2px solid red',
+                //     backgroundColor:'green'
+                // })
+                // //HErarichy Selectors
+                // //dirrct Child ,nested Child,siblings
+                //     //nested Child
+                // $("#example p").css({
+                //     color:'red',
+                //     backgroundColor:'blue'
+                // })
+                // $("#example > p").css({
+                //     backgroundColor:'yellow'
+                // })
+                //direct next sibling
+                // $("img + input").css({
+                //     backgroundColor:'red',
+                //     border:'4px solid green'
+                // })
+                // $("img ~ input").css({
+                //     backgroundColor:'yellow'
+                // })
+                //Attibute Selector
+                // $("a[href]").css({
+                //     backgroundColor:'red'
+                // })
+                //StartWith
+                // $("a[href ^='http']").css({
+                //     backgroundColor: 'red'
+                // })
+                // //Contain
+                // $("a[href *='oo']").css({
+                //     backgroundColor: 'cyan'
+                // })
+                // //EndWith
+                // $("a[href $='eg']").css({
+                //     backgroundColor: 'yellow'
+                // })
+                // //Anding
+                // $("a[href][lang='en-ca']").css({
+                //     backgroundColor:'green',
+                //     color:'yellow'
+                // })
+
+                // $("input[type=text]").css({
+                //     backgroundColor:'red'
+                // })
+                //==
+                $(':text').css({
+                    backgroundColor: 'yellow',
+                });
+                // console.log($(":checked"))
+                // console.log($(":enable"))
+                console.log($('div:empty'));
+                $('div:empty').css({
+                    width: '250px',
+                    height: '300px',
+                    backgroundColor: 'green',
+                });
+            }); //end of page loading
+        </script>
+    </head>
+
+    <body>
+        <div></div>
+        <h1>Basic JQuery Selectors</h1>
+        <p>Selectors are used to fetch page elements inside jquery Array</p>
+        <p>They Use CSS-Like Syntax as follow</p>
+        <ul>
+            <li class="a">
+                <code>$("<i>tag</i>")</code>: Select all of the &lt;tag&gt;
+                elements
+            </li>
+            <li class="a">
+                <code>$("<i>.className</i>")</code>: Select all elements that
+                have the <i>className</i> class applied
+            </li>
+            <li class="b">
+                <code>$("#identifier")</code>: Select the element with the id of
+                <i>identifier</i>
+            </li>
+            <li class="b">
+                <code>$("<i>tag.className</i>")</code>: Select all &lt;tag&gt;
+                elements that have the <i>className</i> class applied
+            </li>
+        </ul>
+
+        <h1 class="active">jQuery Hierarchy Selectors</h1>
+        <p>
+            To select elements based on their position in the document tree, use
+            the Hierarchy Selectors.
+        </p>
+        <p>
+            The Hierarchy Selectors work by examining the position of target
+            elements relative to other elements:
+        </p>
+        <ol>
+            <li>
+                <code>$("parent > child")</code>: selects "child" elements that
+                are immediate descendants of the "parent"
+            </li>
+            <li>
+                <code>$("ancestor descendant")</code>: selects "descendant"
+                elements as long as they have an "ancestor" element somewhere
+                above them
+            </li>
+            <li>
+                <code>$("prev + next")</code>: selects the "next" element if it
+                is immediately preceded by a "prev" element
+            </li>
+            <li>
+                <code>$("prev ~ siblings")</code>: selects all "siblings"
+                elements that come after a "prev" element
+            </li>
+        </ol>
+        <div id="example">
+            <a>
+                <p class="a b">This is paragraph 1</p>
+            </a>
+            <p id="para2">This is paragraph 2</p>
+            <p class="a">This is paragraph 3 <span> this is span 1</span></p>
+            <span>
+                <p id="para4">This is paragraph 4</p>
+            </span>
+            <div id="insteddiv"></div>
+        </div>
+        <button id="appendRT">MoveListItem</button>
+        <div id="example">anthor div wtih example</div>
+        <div></div>
+        <div></div>
+        <img src="images/1.jpg" />
+        <img src="images/2.jpg" />
+        <!-- <a>Test Anchor</a> -->
+        <input type="text" value="Type your name here" />
+        <input type="text" value="Here" />
+        <input type="text" value="Next to Image2" />
+        <a href="http://www.google.com" name="link1" lang="en-us">Google</a>
+        <a href="http://www.facebook.com" lang="en-ca">Facebook</a>
+        <a href="http://www.iti.gov.eg" name="link2">ITI</a>
+        <a href="ftp.ncbi.nih.gov" lang="en-ca">NCBI</a>
+        <a href="f.ncbi.iti.gov">MCIT</a>
+        <h3>HTML Table 1</h3>
+        <div id="test">any data</div>
+        <table>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+            </tr>
+            <tr>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+            </tr>
+            <tr>
+                <td>Cell 5</td>
+                <td>Cell 6</td>
+            </tr>
+        </table>
+
+        <h3>HTML Table 2</h3>
+
+        <table>
+            <tr>
+                <td><a href="http://www.iti.gov.eg" lang="en-us"> ITI </a></td>
+                <td>Cell 2</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="http://www.google.com" lang="ar-sa"> google </a>
+                </td>
+                <td>Cell 4</td>
+            </tr>
+            <tr>
+                <td><a href="next.html" lang="en-us"> MyPage </a></td>
+                <td>Cell 6</td>
+            </tr>
+        </table>
+
+        <h3>HTML Form</h3>
+        <form>
+            <fieldset>
+                <legend>Filters Form</legend>
+                <input type="text" value="Type your name here" />
+                <br />
+                <input type="text" value="Type your age" />
+                <br />
+                Agree <input type="checkbox" value="1" checked />
+                <input type="button" value="send" />
+            </fieldset>
+        </form>
+
+        <input type="text" value="Type your name here" />
+
+        <input type="text" value="Type your name here" />
+        <select>
+            <option value="1">SD</option>
+            <option value="2">OS</option>
+        </select>
+        <br />
+        <br />
+        <br />
+        <div style="background-color: red">hii</div>
+        <div
+            style="background-color: yellow; width: 200px; height: 150px"
+        ></div>
+        <div style="background-color: green; width: 200px; height: 150px"></div>
+        <div style="background-color: black; width: 200px; height: 150px"></div>
+        <div
+            style="background-color: orchid; width: 200px; height: 150px"
+        ></div>
+        <script src="app.js"></script>
+    </body>
+</html>
